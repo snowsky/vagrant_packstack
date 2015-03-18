@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "controller" do |controller|
-    controller.vm.synced_folder '.', '/vagrant'
+    controller.vm.synced_folder '.', "#{ENV['MOUNT_POINT']}"
     controller.vm.network :private_network, ip: "#{ENV['CONTROLLER_IP']}"
     controller.vm.provision "shell", path: "scripts/packstack.sh"
   end

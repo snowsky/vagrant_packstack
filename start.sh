@@ -1,4 +1,4 @@
-. include.sh
+. lib/include.sh
 vagrant up
 vagrant provision network
 vagrant provision compute

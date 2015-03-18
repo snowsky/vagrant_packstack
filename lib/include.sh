@@ -2,6 +2,7 @@ export CONTROLLER_IP="192.168.10.2"
 export NETWORK_IP="192.168.10.3"
 export COMPUTE_IP="192.168.10.4"
 export NETMASK="24"
+export MOUNT_POINT="/vagrant"
 
 function prep() {
   sudo systemctl stop NetworkManager
