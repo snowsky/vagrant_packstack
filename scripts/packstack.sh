@@ -22,4 +22,4 @@ sudo ssh-keygen -f $MOUNT_POINT/keys/network_rsa.pem -y > /root/.ssh/authorized_
 sudo ssh-keygen -f $MOUNT_POINT/keys/compute_rsa.pem -y >> /root/.ssh/authorized_keys
 sudo ssh-keygen -f $MOUNT_POINT/keys/controller_rsa.pem -y >> /root/.ssh/authorized_keys
 
-packstack --answer-file=$MOUNT_POINT/answer-files/ha.txt
+sudo packstack --answer-file=$MOUNT_POINT/answer-files/ha.txt
