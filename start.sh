@@ -1,3 +1,4 @@
+set -x
 . lib/include.sh
 vagrant up
 vagrant provision network

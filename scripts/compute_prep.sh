@@ -1,11 +1,13 @@
 #! /bin/env bash
 
+# Fixme: don't know why MOUNT_POINT can not work here
+MOUNT_POINT="/vagrant"
 source $MOUNT_POINT/lib/include.sh
 
 export MANAGEMENT_IP=$COMPUTE_IP
-prep()
+prep
 
-sudo mkdir /root/.ssh > /dev/null
+sudo mkdir /root/.ssh || true
 sudo cp $MOUNT_POINT/keys/compute_rsa.pem /root/.ssh/id_rsa
 sudo ssh-keygen -f $MOUNT_POINT/keys/compute_rsa.pem -y >> /root/.ssh/id_rsa.pub
 #echo y | sudo ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
