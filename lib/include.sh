@@ -1,8 +1,9 @@
-export CONTROLLER_IP="192.168.10.2"
-export NETWORK_IP="192.168.10.3"
-export COMPUTE_IP="192.168.10.4"
+export CONTROLLER_IP="192.168.100.2"
+export NETWORK_IP="192.168.100.3"
+export COMPUTE_IP="192.168.100.4"
 export NETMASK="24"
 export MOUNT_POINT="/vagrant"
+export FLOATING_IP="10.3.4.0/22"
 
 function prep() {
   sudo systemctl stop NetworkManager

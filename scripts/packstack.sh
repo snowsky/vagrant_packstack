@@ -22,4 +22,6 @@ sudo ssh-keygen -f $MOUNT_POINT/keys/network_rsa.pem -y > /root/.ssh/authorized_
 sudo ssh-keygen -f $MOUNT_POINT/keys/compute_rsa.pem -y >> /root/.ssh/authorized_keys
 sudo ssh-keygen -f $MOUNT_POINT/keys/controller_rsa.pem -y >> /root/.ssh/authorized_keys
 
-sudo packstack --answer-file=$MOUNT_POINT/answer-files/ha.txt
+TMP_ANSWER_FILE=$(mktemp /tmp/answer_file.XXXXXXX)
+sed -e "s/[[:<:]]CONTROLLER_IP[[:>:]]/$CONTROLLER_IP/" -e "s/[[:<:]]NETWORK_IP[[:>:]]/$NETWORK_IP/" -e "s/[[:<:]]COMPUTE_IP[[:>:]]/$COMPUTE_IP/" < $MOUNT_POINT/answer-files/ha.txt > $TMP_ANSWER_FILE
+sudo packstack --answer-file=$TMP_ANSWER_FILE
